@@ -28,8 +28,8 @@
 -(void)registerViews:(NSArray *)views started:(GBLoadingIndicatorStartedLoadingBlock)started finished:(GBLoadingIndicatorFinishedLoadingBlock)finished failed:(GBLoadingIndicatorFailedLoadingBlock)failed;
 
 //call these when things happen
--(void)startedLoad;
--(void)finishedLoad;
--(void)failedLoad;
+-(void)didStartLoad;
+-(void)didFinishLoad;
+-(void)didFailLoad;
 
 @end

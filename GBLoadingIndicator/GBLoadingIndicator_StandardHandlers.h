@@ -24,16 +24,13 @@ static GBLoadingIndicatorStartedLoadingBlock const kGBLoadingIndicatorBlockInsta
     }
 };
 
-#define kGBLoadingIndicatorBlockAddSpinnerTo(view) GBLoadingIndicatorBlockFactoryAddSpinner(self, view)
-static inline GBLoadingIndicatorStartedLoadingBlock GBLoadingIndicatorBlockFactoryAddSpinner(id caller, UIView *view) {
+#define kGBLoadingIndicatorBlockAddSpinner GBLoadingIndicatorBlockFactoryAddSpinner(self)
+static inline GBLoadingIndicatorStartedLoadingBlock GBLoadingIndicatorBlockFactoryAddSpinner(id caller) {
     __weak id weakCaller = caller;
     return ^(NSArray *registeredViews) {
         if ([weakCaller isKindOfClass:UIViewController.class]) {
             //get the caller's view if he's a UIViewController
-//            UIView *targetView = ((UIViewController *)weakCaller).view;
-            
-            //foo decide what im doing
-            UIView *targetView = view;
+            UIView *targetView = ((UIViewController *)weakCaller).view;
             
             //creater a spinner for him
             UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -52,8 +49,8 @@ static inline GBLoadingIndicatorStartedLoadingBlock GBLoadingIndicatorBlockFacto
     };
 };
 
-#define kGBLoadingIndicatorBlockHideAndShowSpinner(view) ^(NSArray *registeredViews) { \
-    GBLoadingIndicatorBlockFactoryAddSpinner(self, view)(registeredViews); \
+#define kGBLoadingIndicatorBlockHideViewsAndShowSpinner ^(NSArray *registeredViews) { \
+    kGBLoadingIndicatorBlockAddSpinner(registeredViews); \
     kGBLoadingIndicatorBlockInstantlyHide(registeredViews); \
 }
 
@@ -93,7 +90,7 @@ static inline GBLoadingIndicatorFinishedLoadingBlock GBLoadingIndicatorBlockFact
     };
 };
 
-#define kGBLoadingIndicatorBlockShowAndRemoveSpinner ^(NSArray *registeredViews, BOOL success) { \
+#define kGBLoadingIndicatorBlockShowViewsAndRemoveSpinner ^(NSArray *registeredViews, BOOL success) { \
     kGBLoadingIndicatorBlockRemoveSpinner(registeredViews, success); \
     kGBLoadingIndicatorBlockFadeInViews(registeredViews, success); \
 }

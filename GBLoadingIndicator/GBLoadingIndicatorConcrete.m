@@ -60,15 +60,15 @@
     self.internalRegisteredViews = nil;
 }
 
--(void)startedLoad {
+-(void)didStartLoad {
     if (self.startedLoadingHandler) self.startedLoadingHandler(self.registeredViews);
 }
 
--(void)finishedLoad {
+-(void)didFinishLoad {
     if (self.finishedLoadingHandler) self.finishedLoadingHandler(self.registeredViews, YES);
 }
 
--(void)failedLoad {
+-(void)didFailLoad {
     if (self.finishedLoadingHandler) self.finishedLoadingHandler(self.registeredViews, NO);
     if (self.failedLoadingHandler) self.failedLoadingHandler(self.registeredViews);
 }
