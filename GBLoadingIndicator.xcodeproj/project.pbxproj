@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8A9DA4921792CD680074054E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A9DA4911792CD680074054E /* Foundation.framework */; };
+		8A9DA4A51792CDDB0074054E /* GBLoadingIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9DA4A01792CDDB0074054E /* GBLoadingIndicator.m */; };
+		8A9DA4A61792CDDB0074054E /* GBLoadingIndicatorConcrete.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9DA4A21792CDDB0074054E /* GBLoadingIndicatorConcrete.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +28,12 @@
 		8A9DA48E1792CD680074054E /* libGBLoadingIndicator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGBLoadingIndicator.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A9DA4911792CD680074054E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8A9DA4951792CD680074054E /* GBLoadingIndicator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GBLoadingIndicator-Prefix.pch"; sourceTree = "<group>"; };
+		8A9DA49F1792CDDB0074054E /* GBLoadingIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBLoadingIndicator.h; sourceTree = "<group>"; };
+		8A9DA4A01792CDDB0074054E /* GBLoadingIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBLoadingIndicator.m; sourceTree = "<group>"; };
+		8A9DA4A11792CDDB0074054E /* GBLoadingIndicatorConcrete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBLoadingIndicatorConcrete.h; sourceTree = "<group>"; };
+		8A9DA4A21792CDDB0074054E /* GBLoadingIndicatorConcrete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBLoadingIndicatorConcrete.m; sourceTree = "<group>"; };
+		8A9DA4A31792CDDB0074054E /* GBLoadingIndicator_Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBLoadingIndicator_Types.h; sourceTree = "<group>"; };
+		8A9DA4A41792CDDB0074054E /* GBLoadingIndicator_StandardHandlers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBLoadingIndicator_StandardHandlers.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +76,12 @@
 		8A9DA4931792CD680074054E /* GBLoadingIndicator */ = {
 			isa = PBXGroup;
 			children = (
+				8A9DA49F1792CDDB0074054E /* GBLoadingIndicator.h */,
+				8A9DA4A01792CDDB0074054E /* GBLoadingIndicator.m */,
+				8A9DA4A11792CDDB0074054E /* GBLoadingIndicatorConcrete.h */,
+				8A9DA4A21792CDDB0074054E /* GBLoadingIndicatorConcrete.m */,
+				8A9DA4A31792CDDB0074054E /* GBLoadingIndicator_Types.h */,
+				8A9DA4A41792CDDB0074054E /* GBLoadingIndicator_StandardHandlers.h */,
 				8A9DA4941792CD680074054E /* Supporting Files */,
 			);
 			path = GBLoadingIndicator;
@@ -132,6 +146,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A9DA4A51792CDDB0074054E /* GBLoadingIndicator.m in Sources */,
+				8A9DA4A61792CDDB0074054E /* GBLoadingIndicatorConcrete.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
