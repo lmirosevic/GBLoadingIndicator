@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'GBLoadingIndicator' target in the 'GBLoadingIndicator' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
