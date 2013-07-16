@@ -8,4 +8,3 @@
 
 typedef void(^GBLoadingIndicatorStartedLoadingBlock)(NSArray *registeredViews);
 typedef void(^GBLoadingIndicatorFinishedLoadingBlock)(NSArray *registeredViews, BOOL success);
-typedef void(^GBLoadingIndicatorFailedLoadingBlock)(NSArray *registeredViews);

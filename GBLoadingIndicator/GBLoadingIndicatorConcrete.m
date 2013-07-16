@@ -32,11 +32,10 @@
 
 #pragma mark - API
 
--(void)registerViews:(NSArray *)views started:(GBLoadingIndicatorStartedLoadingBlock)started finished:(GBLoadingIndicatorFinishedLoadingBlock)finished failed:(GBLoadingIndicatorFailedLoadingBlock)failed {
+-(void)registerViews:(NSArray *)views started:(GBLoadingIndicatorStartedLoadingBlock)started finished:(GBLoadingIndicatorFinishedLoadingBlock)finished {
     [self registerViews:views];
     self.startedLoadingHandler = started;
     self.finishedLoadingHandler = finished;
-    self.failedLoadingHandler = failed;
 }
 
 -(void)registerView:(UIView *)view {
@@ -64,13 +63,12 @@
     if (self.startedLoadingHandler) self.startedLoadingHandler(self.registeredViews);
 }
 
--(void)didFinishLoad {
+-(void)didSucceedLoad {
     if (self.finishedLoadingHandler) self.finishedLoadingHandler(self.registeredViews, YES);
 }
 
 -(void)didFailLoad {
     if (self.finishedLoadingHandler) self.finishedLoadingHandler(self.registeredViews, NO);
-    if (self.failedLoadingHandler) self.failedLoadingHandler(self.registeredViews);
 }
 
 @end
