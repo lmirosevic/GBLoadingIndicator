@@ -17,8 +17,6 @@ static NSTimeInterval const kGBLoadingIndicatorFadeViewsAnimationDuration = 0.2;
 static char bigWhiteSpinnerKey;
 static char errorViewKey;
 
-//typedef void(^SimpleBlock)(void);//foo kill
-
 #pragma mark - StartedLoadingBlock
 
 static GBLoadingIndicatorStartedLoadingBlock const kGBLoadingIndicatorBlockInstantlyHideViews = ^(NSArray *registeredViews) {
@@ -139,9 +137,7 @@ static inline GBLoadingIndicatorFinishedLoadingBlock GBLoadingIndicatorBlockFact
 #define kGBLoadingIndicatorBlockRemoveSpinnerAndShowViewsOrErrorView(errorView) ^(NSArray *registeredViews, BOOL success) { \
     kGBLoadingIndicatorBlockRemoveSpinner(registeredViews, success); \
     kGBLoadingIndicatorBlockFadeInViews(registeredViews, success); \
-    ((GBLoadingIndicatorFinishedLoadingBlock)kGBLoadingIndicatorBlockAddErrorView(errorView))(registeredViews, success); \
+    kGBLoadingIndicatorBlockAddErrorView(errorView)(registeredViews, success); \
 }
-//foo kill the cast above
-
 
 
