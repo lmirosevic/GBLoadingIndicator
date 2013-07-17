@@ -11,6 +11,7 @@
 @interface GBLoadingIndicatorConcrete ()
 
 @property (strong, nonatomic) NSMutableArray                                *internalRegisteredViews;
+@property (assign, nonatomic, readwrite) BOOL                               isLoading;
 
 @end
 
@@ -60,15 +61,27 @@
 }
 
 -(void)didStartLoad {
-    if (self.startedLoadingHandler) self.startedLoadingHandler(self.registeredViews);
+    if (!self.isLoading) {
+        NSLog(@"__start");
+        self.isLoading = YES;
+        if (self.startedLoadingHandler) self.startedLoadingHandler(self.registeredViews);
+    }
 }
 
 -(void)didSucceedLoad {
-    if (self.finishedLoadingHandler) self.finishedLoadingHandler(self.registeredViews, YES);
+    if (self.isLoading) {
+        NSLog(@"__succe");
+        self.isLoading = NO;
+        if (self.finishedLoadingHandler) self.finishedLoadingHandler(self.registeredViews, YES);
+    }
 }
 
 -(void)didFailLoad {
-    if (self.finishedLoadingHandler) self.finishedLoadingHandler(self.registeredViews, NO);
+    if (self.isLoading) {
+        NSLog(@"__fail");
+        self.isLoading = NO;
+        if (self.finishedLoadingHandler) self.finishedLoadingHandler(self.registeredViews, NO);
+    }
 }
 
 @end

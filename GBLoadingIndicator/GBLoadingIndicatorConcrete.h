@@ -17,6 +17,7 @@
 
 @property (copy, nonatomic) GBLoadingIndicatorStartedLoadingBlock           startedLoadingHandler;
 @property (copy, nonatomic) GBLoadingIndicatorFinishedLoadingBlock          finishedLoadingHandler;
+@property (assign, nonatomic, readonly) BOOL                                isLoading;
 
 -(void)registerView:(UIView *)view;
 -(void)registerViews:(NSArray *)views;
