@@ -43,7 +43,12 @@ static inline GBLoadingIndicatorStartedLoadingBlock GBLoadingIndicatorBlockFacto
             
             //add the spinner to the center of the view
             spinner.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-            spinner.center = targetView.center;
+            
+            spinner.frame = CGRectMake(targetView.bounds.origin.x + (targetView.bounds.size.width - spinner.frame.size.width)/2,
+                                       targetView.bounds.origin.y + (targetView.bounds.size.height - spinner.frame.size.height)/2,
+                                       spinner.frame.size.width,
+                                       spinner.frame.size.height);
+            
             [targetView addSubview:spinner];
             [targetView bringSubviewToFront:spinner];
             
@@ -123,7 +128,11 @@ static inline GBLoadingIndicatorFinishedLoadingBlock GBLoadingIndicatorBlockFact
                 //get the caller's view if he's a UIViewController
                 UIView *targetView = ((UIViewController *)weakCaller).view;
                 
-                errorView.center = targetView.center;
+                errorView.frame = CGRectMake(targetView.bounds.origin.x + (targetView.bounds.size.width - errorView.frame.size.width)/2,
+                                             targetView.bounds.origin.y + (targetView.bounds.size.height - errorView.frame.size.height)/2,
+                                             errorView.frame.size.width,
+                                             errorView.frame.size.height);
+
                 [targetView addSubview:errorView];
                 [targetView bringSubviewToFront:errorView];
 
