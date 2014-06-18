@@ -149,4 +149,8 @@ static inline GBLoadingIndicatorFinishedLoadingBlock GBLoadingIndicatorBlockFact
     kGBLoadingIndicatorBlockAddErrorView(errorView)(registeredViews, success); \
 }
 
+#define kGBLoadingIndicatorBlockRemoveSpinnerAndShowViews ^(NSArray *registeredViews, BOOL success) { \
+    kGBLoadingIndicatorBlockRemoveSpinner(registeredViews, success); \
+    kGBLoadingIndicatorBlockFadeInViews(registeredViews, success); \
+}
 
